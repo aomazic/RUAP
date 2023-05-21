@@ -18,7 +18,7 @@ public class MlController {
     }
 
     @PostMapping("/setMLInput")
-    public ResponseEntity<String> SetMlResponse(@RequestBody Input input) throws IOException {
+    public ResponseEntity<String> SetMlResponse(@RequestBody Input input){
         this.input = input;
         return new ResponseEntity<>("ML Set", HttpStatus.OK);
     }
