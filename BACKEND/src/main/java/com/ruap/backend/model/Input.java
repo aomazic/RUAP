@@ -2,29 +2,69 @@ package com.ruap.backend.model;
 
 
 public class Input {
-    private int recency;
-    private int frequency;
-    private int monetary;
-    private int time;
-    private int class_;
-    public int getFrequency() {
-        return frequency;
+    private int mileage;
+    private String make;
+    private String model;
+    private String fuel;
+    private String gear;
+    private String  offerType;
+    private int hp;
+    private int year;
+
+    public int getMileage() {
+        return mileage;
     }
-    public int getMonetary() {
-        return monetary;
+    public void setMileage(int mileage) {
+        this.mileage = mileage;
     }
-    public int getTime() {
-        return time;
+    public String getMake() {
+        return make;
     }
-    public int getRecency() {
-        return recency;
+    public void setMake(String make) {
+        this.make = make;
     }
-    public int getClass_() {
-        return class_;
+    public String getModel() {
+        return model;
+    }
+    public void setModel(String model) {
+        this.model = model;
+    }
+    public String getFuel() {
+        return fuel;
+    }
+    public void setFuel(String fuel) {
+        this.fuel = fuel;
+    }
+    public String getGear() {
+        return gear;
+    }
+    public void setGear(String gear) {
+        this.gear = gear;
+    }
+    public String getOfferType() {
+        return offerType;
+    }
+    public void setOfferType(String offerType) {
+        this.offerType = offerType;
+    }
+    public int getHp() {
+        return hp;
+    }
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+    public int getYear() {
+        return year;
+    }
+    public void setYear(int year) {
+        this.year = year;
     }
     @Override
     public String toString() {
-        return "Input [recency=" + recency + ", frequency=" + frequency + ", monetary=" + monetary + ", time=" + time
-                + ", Class=" + class_ + "]";
+        return "Input [mileage=" + mileage + ", make=" + make + ", model=" + model + ", fuel=" + fuel + ", gear=" + gear
+                + ", offerType=" + offerType + ", hp=" + hp + ", year=" + year + "]";
     }
+
+
+
 }

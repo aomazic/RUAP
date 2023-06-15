@@ -12,18 +12,12 @@ import java.io.IOException;
 public class MlController {
     private final CallRequestResponseService callRequestResponseService;
 
-    private Input input;
     public MlController(CallRequestResponseService callRequestResponseService) {
         this.callRequestResponseService = callRequestResponseService;
     }
 
-    @PostMapping("/setMLInput")
-    public ResponseEntity<String> SetMlInput(@RequestBody Input input){
-        this.input = input;
-        return new ResponseEntity<>("ML Set", HttpStatus.OK);
-    }
     @GetMapping("/getML")
-    public ResponseEntity<String> GetMlResponse() throws IOException {
+    public ResponseEntity<String> GetMlResponse(@RequestBody Input input) throws IOException {
         String response = callRequestResponseService.invokeRequestResponseService(input);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
