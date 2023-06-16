@@ -1,35 +1,54 @@
 
-
 form {
-  background-image: url('../../assets/images/matte-black-ferrari-j8oholjdosxmdo7d.jpg');
-  background-size: cover;
-  background-position: center;
-  background-color: black;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
-  justify-items: center;
+  background-color: #f8f7fc;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  height: 100vh;
-
-
-
+  border: 1px solid #cfd8dc;
+  border-radius: 1em;
+  padding: 2em;
+}
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10em;
 }
 
-
-
-.mat-form-field {
-  width: 300px;
-  background-color: red;
-  color: white;
-  border-radius: 10em;
+.input-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-button[type="submit"] {
-  grid-column: 1 / -1;
-  background-color: blue;
-  color: white;
-  padding: 15px 30px; /* Povećanje dimenzija dugmeta */
-  font-size: 18px; /* Povećanje veličine fonta */
-  border-radius: 4px;
+mat-form-field {
+  width: 100%;
+  padding-bottom: 0.5em;
 }
+
+button{
+  width: 100%;
+}
+button:hover{
+  background-color: #1F51FF!important;
+  color: white !important;
+
+}
+button:active {
+  background-color: #4169E1 !important;
+  color: white !important;
+}
+mat-expansion-panel{
+  width: 100%;
+  margin-top: 1em;
+}
+
+@media screen and (min-width: 968px) {
+  form {
+    width: 40%;
+  }
+}
+

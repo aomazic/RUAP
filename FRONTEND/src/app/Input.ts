@@ -1,7 +1,10 @@
 export interface Input {
-  recency : number;
-  frequency : number;
-  monetary : number;
-  time : number;
-  class_ : number;
+  mileage : number;
+  make : String;
+  model : String;
+  fuel : String;
+  gear : String;
+  offerType : String;
+  hp : number;
+  year : number;
 }

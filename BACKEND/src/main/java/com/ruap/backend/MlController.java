@@ -16,7 +16,7 @@ public class MlController {
         this.callRequestResponseService = callRequestResponseService;
     }
 
-    @GetMapping("/getML")
+    @PostMapping("/getML")
     public ResponseEntity<String> GetMlResponse(@RequestBody Input input) throws IOException {
         String response = callRequestResponseService.invokeRequestResponseService(input);
         return new ResponseEntity<>(response, HttpStatus.OK);

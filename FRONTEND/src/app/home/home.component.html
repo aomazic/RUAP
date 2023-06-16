@@ -1,72 +1,140 @@
-<form>
-  <mat-form-field>
-    <mat-label>Kilometraža</mat-label>
-    <input matInput placeholder="Milesage" name="mileage">
-  </mat-form-field>
+<div class="formContainer">
+  <form [formGroup]="inputForm" (ngSubmit)="getMl()">
+    <h2>Car price predictor</h2>
+    <div class="input-row">
+      <mat-form-field>
+        <mat-label>Maker</mat-label>
+        <input type="text" matInput formControlName="Maker" placeholder="Maker" required>
+      </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Proizvođač</mat-label>
-    <input matInput placeholder="Maker" name="make">
-  </mat-form-field>
+      <mat-form-field>
+        <mat-label>Model</mat-label>
+        <input matInput type="text" formControlName="Model" placeholder="Model" required>
+      </mat-form-field>
+    </div>
 
-  <mat-form-field>
-    <mat-label>Model</mat-label>
-    <input matInput placeholder="Model" name="model">
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Mileage</mat-label>
+      <input matInput type="number" formControlName="Mileage" placeholder="Mileage" required>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Gorivo</mat-label>
-    <mat-select placeholder="Fuel type" name="fuel">
-      <mat-option value="Gasoline">Gasoline</mat-option>
-      <mat-option value="Diesel">Diesel</mat-option>
-      <mat-option value="Electric/Gasoline">Electric/Gasoline</mat-option>
-      <mat-option value="Electric">Electric</mat-option>
-      <mat-option value="LPG">LPG</mat-option>
-      <mat-option value="CNG">CNG</mat-option>
-      <mat-option value="Others">Others</mat-option>
-      <mat-option value="Electric/Diesel">Electric/Diesel</mat-option>
-      <mat-option value="Ethanol">Ethanol</mat-option>
-    </mat-select>
+    <div class="input-row">
+      <mat-form-field>
+        <mat-label>Fuel type</mat-label>
+        <mat-select placeholder="Fuel type" formControlName="fuel" required>
+          <mat-option value="Gasoline">Gasoline</mat-option>
+          <mat-option value="Diesel">Diesel</mat-option>
+          <mat-option value="Electric/Gasoline">Electric/Gasoline</mat-option>
+          <mat-option value="Electric">Electric</mat-option>
+          <mat-option value="LPG">LPG</mat-option>
+          <mat-option value="CNG">CNG</mat-option>
+          <mat-option value="Others">Others</mat-option>
+          <mat-option value="Electric/Diesel">Electric/Diesel</mat-option>
+          <mat-option value="Ethanol">Ethanol</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-  </mat-form-field>
+      <mat-form-field>
+        <mat-label>Gear type</mat-label>
+        <mat-select placeholder="Gear type" formControlName="gear" required>
+          <mat-option value="manual">Manual</mat-option>
+          <mat-option value="automatic">Automatic</mat-option>
+          <mat-option value="semi-automatic">Semi-Automatic</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="input-row">
+      <mat-form-field>
+        <mat-label>Offer type</mat-label>
+        <mat-select placeholder="Offer type" formControlName="offerType" required>
+          <mat-option value="Used">Used</mat-option>
+          <mat-option value="Pre-registered">Pre-registered</mat-option>
+          <mat-option value="Demonstration">Demonstration</mat-option>
+          <mat-option value="Employee's car">Employee's car</mat-option>
+          <mat-option value="New">New</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="input-row">
+      <mat-form-field>
+        <mat-label>Horse power</mat-label>
+        <input matInput type="number" formControlName="Hp" placeholder="Horse power" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Manufacture year</mat-label>
+        <input matInput type="number" formControlName="year" placeholder="Year" required>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button type="submit" [disabled]="inputForm.invalid">Submit</button>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          My predictions
+        </mat-panel-title>
+        <mat-panel-description>
+          See your predictions
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-table class="predictions-table" [dataSource]="predictions">
+        <ng-container matColumnDef="make">
+          <mat-header-cell *matHeaderCellDef>Make</mat-header-cell>
+          <mat-cell *matCellDef="let prediction">{{ prediction.input.make }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="mileage">
+          <mat-header-cell *matHeaderCellDef>Mileage</mat-header-cell>
+          <mat-cell *matCellDef="let prediction">{{ prediction.input.mileage }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="model">
+          <mat-header-cell *matHeaderCellDef>Model</mat-header-cell>
+          <mat-cell *matCellDef="let prediction">{{prediction.input.model}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="fuel">
+          <mat-header-cell *matHeaderCellDef>Fuel Type</mat-header-cell>
+          <mat-cell *matCellDef="let prediction">{{prediction.input.fuel}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="gear">
+          <mat-header-cell *matHeaderCellDef>Gear Type</mat-header-cell>
+          <mat-cell *matCellDef="let prediction">{{prediction.input.gear}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="offerType">
+          <mat-header-cell *matHeaderCellDef>Offer Type</mat-header-cell>
+          <mat-cell *matCellDef="let prediction">{{ prediction.input.offerType}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="hp">
+          <mat-header-cell *matHeaderCellDef>Horse Power</mat-header-cell>
+          <mat-cell *matCellDef="let prediction">{{ prediction.input.hp}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="year">
+          <mat-header-cell *matHeaderCellDef>Manufacture Year</mat-header-cell>
+          <mat-cell *matCellDef="let prediction">{{ prediction.input.year }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="predicted price">
+          <mat-header-cell *matHeaderCellDef>Predicted Price</mat-header-cell>
+          <mat-cell *matCellDef="let prediction">{{ prediction.response }}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+    </mat-expansion-panel>
+  </form>
+
+
+</div>
 
 
 
-
-  <mat-form-field>
-    <mat-label>Vrsta mjenjača</mat-label>
-    <mat-select placeholder="Gear" name="gear">
-      <mat-option value="manual">Manual</mat-option>
-      <mat-option value="automatic">Automatic</mat-option>
-      <mat-option value="semi-automatic">Semi-Automatic</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Vrsta ponude</mat-label>
-    <mat-select placeholder="Offer type" name="offerType">
-      <mat-option value="Used">Used</mat-option>
-      <mat-option value="Pre-registered">Pre-registered</mat-option>
-      <mat-option value="Demonstration">Demonstration</mat-option>
-      <mat-option value="Employee's car">Employee's car</mat-option>
-      <mat-option value="New">New</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-
-
-  <mat-form-field>
-    <mat-label>Konjska snaga</mat-label>
-    <input matInput placeholder="Horse power" name="horsepower">
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Godina proizvodnje</mat-label>
-    <input matInput placeholder="Year" name="year">
-  </mat-form-field>
-
-  <button mat-button type="submit">Potvrdi</button>
-
-
-
-</form>
