@@ -1,1 +1,72 @@
-<p>home works!</p>
+<form>
+  <mat-form-field>
+    <mat-label>Kilometraža</mat-label>
+    <input matInput placeholder="Milesage" name="mileage">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Proizvođač</mat-label>
+    <input matInput placeholder="Maker" name="make">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Model</mat-label>
+    <input matInput placeholder="Model" name="model">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Gorivo</mat-label>
+    <mat-select placeholder="Fuel type" name="fuel">
+      <mat-option value="Gasoline">Gasoline</mat-option>
+      <mat-option value="Diesel">Diesel</mat-option>
+      <mat-option value="Electric/Gasoline">Electric/Gasoline</mat-option>
+      <mat-option value="Electric">Electric</mat-option>
+      <mat-option value="LPG">LPG</mat-option>
+      <mat-option value="CNG">CNG</mat-option>
+      <mat-option value="Others">Others</mat-option>
+      <mat-option value="Electric/Diesel">Electric/Diesel</mat-option>
+      <mat-option value="Ethanol">Ethanol</mat-option>
+    </mat-select>
+
+  </mat-form-field>
+
+
+
+
+  <mat-form-field>
+    <mat-label>Vrsta mjenjača</mat-label>
+    <mat-select placeholder="Gear" name="gear">
+      <mat-option value="manual">Manual</mat-option>
+      <mat-option value="automatic">Automatic</mat-option>
+      <mat-option value="semi-automatic">Semi-Automatic</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Vrsta ponude</mat-label>
+    <mat-select placeholder="Offer type" name="offerType">
+      <mat-option value="Used">Used</mat-option>
+      <mat-option value="Pre-registered">Pre-registered</mat-option>
+      <mat-option value="Demonstration">Demonstration</mat-option>
+      <mat-option value="Employee's car">Employee's car</mat-option>
+      <mat-option value="New">New</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+
+  <mat-form-field>
+    <mat-label>Konjska snaga</mat-label>
+    <input matInput placeholder="Horse power" name="horsepower">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Godina proizvodnje</mat-label>
+    <input matInput placeholder="Year" name="year">
+  </mat-form-field>
+
+  <button mat-button type="submit">Potvrdi</button>
+
+
+
+</form>

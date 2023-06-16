@@ -1,0 +1,35 @@
+
+
+form {
+  background-image: url('../../assets/images/matte-black-ferrari-j8oholjdosxmdo7d.jpg');
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+
+
+
+}
+
+
+
+.mat-form-field {
+  width: 300px;
+  background-color: red;
+  color: white;
+  border-radius: 10em;
+}
+
+button[type="submit"] {
+  grid-column: 1 / -1;
+  background-color: blue;
+  color: white;
+  padding: 15px 30px; /* Povećanje dimenzija dugmeta */
+  font-size: 18px; /* Povećanje veličine fonta */
+  border-radius: 4px;
+}
